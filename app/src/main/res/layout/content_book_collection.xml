@@ -6,24 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".modules.productCollection.ProductCollectionFragment"
+    tools:context=".modules.BookCollection.BookCollectionFragment"
     tools:showIn="@layout/activity_book_collection">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/productCollectionRecyclerView"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
         tools:listitem="@layout/row_book_layout"/>
 
     <TextView
-        android:id="@+id/emptyProductCollectionRecyclerView"
+        android:id="@+id/emptyrecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
         android:textSize="16sp"
         android:layout_marginStart="5dp"
-        android:text=""
+        android:text="@string/error_no_data"
         android:visibility="gone"/>
 
 </RelativeLayout>

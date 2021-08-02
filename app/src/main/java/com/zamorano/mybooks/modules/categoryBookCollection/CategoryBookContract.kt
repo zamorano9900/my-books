@@ -1,5 +1,6 @@
 package com.zamorano.mybooks.modules.categoryBookCollection
 
+import com.zamorano.mybooks.model.api.Category
 import java.lang.ref.WeakReference
 
 interface CategoryBookContract {
@@ -9,7 +10,6 @@ interface CategoryBookContract {
         var view: WeakReference<View>?
 
         fun getCategories()
-        fun onShowLoading(show : Boolean)
     }
 
     interface InteractorInput {
@@ -18,7 +18,8 @@ interface CategoryBookContract {
     }
 
     interface InteractorOutput {
-        fun onShowLoading(show : Boolean)
+        fun onShowCategories(categories : List<Category>)
+        fun onShowError(error : String)
     }
 
     interface Wireframe {
@@ -26,8 +27,8 @@ interface CategoryBookContract {
     }
 
     interface View {
+        fun showCategories(categories: List<Category>)
         fun showGenericServiceError(errorText: String)
-        fun showLoading(show : Boolean)
     }
 }
 

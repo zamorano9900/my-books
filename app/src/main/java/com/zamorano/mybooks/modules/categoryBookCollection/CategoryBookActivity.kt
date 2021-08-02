@@ -2,9 +2,19 @@ package com.zamorano.mybooks.modules.categoryBookCollection
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.bumptech.glide.Glide
 import com.zamorano.mybooks.R
+import com.zamorano.mybooks.model.api.Category
 import com.zamorano.mybooks.modules.base.BaseActivity
+import com.zamorano.mybooks.modules.categoryBookCollection.subviews.CategoryBookAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_book_collection.*
+import kotlinx.android.synthetic.main.content_book_collection.*
 import java.lang.ref.WeakReference
 import javax.inject.Inject
 
@@ -21,11 +31,15 @@ class CategoryBookActivity : BaseActivity(), CategoryBookContract.View {
         presenter.getCategories()
     }
 
-    override fun showGenericServiceError(errorText: String) {
-        TODO("Not yet implemented")
+    override fun showCategories(categories: List<Category>) {
+        val categoriesAdapter = CategoryBookAdapter(this, presenter, categories)
+        recyclerView.adapter = categoriesAdapter
+        recyclerView.layoutManager = LinearLayoutManager(applicationContext)
     }
 
-    override fun showLoading(show: Boolean) {
-        TODO("Not yet implemented")
+    override fun showGenericServiceError(errorText: String) {
+        recyclerView.visibility = GONE
+        emptyrecyclerView.visibility = VISIBLE
+        emptyrecyclerView.text = errorText
     }
 }

@@ -1,5 +1,6 @@
 package com.zamorano.mybooks.modules.categoryBookCollection
 
+import com.zamorano.mybooks.model.api.Category
 import java.lang.ref.WeakReference
 import javax.inject.Inject
 
@@ -7,21 +8,25 @@ class CategoryBookPresenter @Inject constructor(override var interactor: Categor
                                                 override var router: CategoryBookContract.Wireframe) : CategoryBookContract.Presentation, CategoryBookContract.InteractorOutput {
 
     override var view: WeakReference<CategoryBookContract.View>? = null
-    override fun getCategories() {
-        interactor.getCategories()
-    }
 
     init {
         interactor.output = WeakReference(this)
     }
 
+    override fun getCategories() {
+        interactor.getCategories()
+    }
 
     //endregion presentation
 
     //region Output
 
-    override fun onShowLoading(show : Boolean) {
-        view?.get()?.showLoading(show)
+    override fun onShowCategories(categories: List<Category>) {
+        view?.get()?.showCategories(categories)
+    }
+
+    override fun onShowError(error: String) {
+        view?.get()?.showGenericServiceError(error)
     }
 
     //endregion Output

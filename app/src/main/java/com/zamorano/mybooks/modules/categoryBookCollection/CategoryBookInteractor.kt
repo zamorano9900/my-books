@@ -16,13 +16,13 @@ class CategoryBookInteractor @Inject constructor(private val bookRepository: Boo
         bookRepository.getCategories(object : CategoryRepositoryCallback{
             override fun onGetCategoriesSuccess(categories: List<Category>) {
                 super.onGetCategoriesSuccess(categories)
+                output?.get()?.onShowCategories(categories)
             }
 
             override fun onGetCategoriesDidFail(errorKey: ApiErrorKey) {
                 super.onGetCategoriesDidFail(errorKey)
+                output?.get()?.onShowError(errorKey.name)
             }
         })
-
-        //output?.onShowCategories(bookRepository.getCategories())
     }
 }
