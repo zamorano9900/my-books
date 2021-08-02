@@ -6,6 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.zamorano.mybooks.helpers.Converters
+import com.zamorano.mybooks.model.db.daos.BooksDbDao
+import com.zamorano.mybooks.model.db.daos.CategoriesDbDao
+import com.zamorano.mybooks.model.db.daos.CharsDbDao
+import com.zamorano.mybooks.model.db.daos.HousesDbDao
 import com.zamorano.mybooks.model.db.dbEntities.BookEntity
 import com.zamorano.mybooks.model.db.dbEntities.CategoryEntity
 import com.zamorano.mybooks.model.db.dbEntities.CharEntity
@@ -15,8 +19,11 @@ import com.zamorano.mybooks.model.db.dbEntities.HouseEntity
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
+    abstract fun categoriesDao(): CategoriesDbDao
+    abstract fun booksDao(): BooksDbDao
+    abstract fun charsDao(): CharsDbDao
+    abstract fun housesDao(): HousesDbDao
     companion object {
-
         const val DATABASE_NAME = "myBooksApp.db"
         private var INSTANCE: AppDatabase? = null
 
