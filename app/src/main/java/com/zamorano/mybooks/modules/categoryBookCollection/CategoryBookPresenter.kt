@@ -17,6 +17,10 @@ class CategoryBookPresenter @Inject constructor(override var interactor: Categor
         interactor.getCategories()
     }
 
+    override fun onChooseCategory(category: Category) {
+        router.showBookDetail(category)
+    }
+
     //endregion presentation
 
     //region Output

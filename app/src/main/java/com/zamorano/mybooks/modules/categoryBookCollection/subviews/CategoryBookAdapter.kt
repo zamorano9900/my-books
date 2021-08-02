@@ -48,7 +48,7 @@ class CategoryBookAdapter(
 
         init {
             this.titleTextView.setOnClickListener { 
-                //TODO presenter!!.onChooseCategroy(category!!)
+                presenter!!.onChooseCategory(category!!)
             }
         }
     }

@@ -11,18 +11,18 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineTop"
+            android:id="@+id/guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.05" />
+            app:layout_constraintGuide_percent="0.99" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineBottom"
+            android:id="@+id/guideline2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.95" />
+            app:layout_constraintGuide_percent="0.45" />
 
         <include
             layout="@layout/content_book_collection"
@@ -31,11 +31,16 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
-            app:layout_constraintTop_toBottomOf="@+id/guidelineTop"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/header"
             app:layout_constraintVertical_bias="0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/progressLayout"
+        android:visibility="gone"
+        layout="@layout/content_progress_circle_bar" />
 
 </FrameLayout>
 

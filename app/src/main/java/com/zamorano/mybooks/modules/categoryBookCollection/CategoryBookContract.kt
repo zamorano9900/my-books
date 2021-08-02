@@ -10,6 +10,7 @@ interface CategoryBookContract {
         var view: WeakReference<View>?
 
         fun getCategories()
+        fun onChooseCategory(category: Category)
     }
 
     interface InteractorInput {
@@ -23,7 +24,7 @@ interface CategoryBookContract {
     }
 
     interface Wireframe {
-        fun showBookDetail(id: Int)
+        fun showBookDetail(category: Category)
     }
 
     interface View {
