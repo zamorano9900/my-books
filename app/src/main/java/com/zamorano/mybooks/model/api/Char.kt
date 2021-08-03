@@ -16,8 +16,10 @@ data class Char(
     val born: String,
     @SerializedName("died")
     val died: String,
+    @SerializedName("titles")
+    val titles: MutableList<String>,
     @SerializedName("aliases")
-    val aliases: List<String>,
+    val aliases: MutableList<String>,
     @SerializedName("father")
     val father: String,
     @SerializedName("mother")
@@ -25,7 +27,7 @@ data class Char(
     @SerializedName("spouse")
     val spouse: String,
     @SerializedName("allegiances")
-    val allegiances: List<String>,
+    val allegiances: MutableList<String>,
     @SerializedName("playedBy")
-    val playedBy: List<String>
+    val playedBy: MutableList<String>
 )

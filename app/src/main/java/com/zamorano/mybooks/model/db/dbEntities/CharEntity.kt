@@ -16,14 +16,16 @@ data class CharEntity(
     @ColumnInfo(name = "born") var born: String,
     @ColumnInfo(name = "died") var died: String,
     @TypeConverters(Converters::class)
-    @ColumnInfo(name = "aliases") var aliases: List<String> = arrayListOf(),
+    @ColumnInfo(name = "titles") var titles: MutableList<String> = arrayListOf(),
+    @TypeConverters(Converters::class)
+    @ColumnInfo(name = "aliases") var aliases: MutableList<String> = arrayListOf(),
     @ColumnInfo(name = "father") var father: String,
     @ColumnInfo(name = "mother") var mother: String,
     @ColumnInfo(name = "spouse") var spouse: String,
     @TypeConverters(Converters::class)
-    @ColumnInfo(name = "allegiances") var allegiances: List<String> = arrayListOf(),
+    @ColumnInfo(name = "allegiances") var allegiances: MutableList<String> = arrayListOf(),
     @TypeConverters(Converters::class)
-    @ColumnInfo(name = "playedBy") var playedBy: List<String> = arrayListOf()
+    @ColumnInfo(name = "playedBy") var playedBy: MutableList<String> = arrayListOf()
 )
 
 

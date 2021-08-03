@@ -9,7 +9,7 @@ data class Book(
     @SerializedName("name")
     val name: String,
     @SerializedName("authors")
-    val authors: String,
+    val authors: MutableList<String>,
     @SerializedName("numberOfPages")
     val numberOfPages: Int,
     @SerializedName("publisher")

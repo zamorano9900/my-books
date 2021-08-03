@@ -1,5 +1,6 @@
 package com.zamorano.mybooks.modules.categoryBookDetail
 
+import com.zamorano.mybooks.model.api.ApiResultEntity
 import com.zamorano.mybooks.model.api.CategoryType
 import java.lang.ref.WeakReference
 
@@ -18,12 +19,15 @@ interface CategoryBookDetailContract {
     }
 
     interface InteractorOutput {
+        fun onShowError(error : String)
+        fun onShowCategoryDetail(categories : ApiResultEntity)
     }
 
     interface Wireframe {
     }
 
     interface View {
+        fun showCategories(categories: ApiResultEntity)
         fun showGenericServiceError(errorText: String)
     }
 }

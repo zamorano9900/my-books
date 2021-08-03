@@ -3,7 +3,6 @@ package com.zamorano.mybooks.model.api
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
-import java.util.*
 
 @Parcelize
 data class Category(
@@ -11,22 +10,23 @@ data class Category(
     val type: String,
     @SerializedName("category_name")
     val category_name: String
-): Parcelable {
+) : Parcelable {
     val categoryType: CategoryType
         get() {
             return when (type) {
-                "0" -> CategoryType.BOOKS
+                "0" -> CategoryType.BOOK
                 "1" -> CategoryType.HOUSE
-                "2" -> CategoryType.CHARS
-                else -> CategoryType.BOOKS
+                "2" -> CategoryType.CHAR
+                else -> CategoryType.DEFAULT
             }
         }
 }
 
 enum class CategoryType {
-    BOOKS,
+    DEFAULT,
+    BOOK,
     HOUSE,
-    CHARS
+    CHAR
 }
 
 

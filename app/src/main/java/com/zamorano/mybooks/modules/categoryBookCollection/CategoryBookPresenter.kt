@@ -13,6 +13,8 @@ class CategoryBookPresenter @Inject constructor(override var interactor: Categor
         interactor.output = WeakReference(this)
     }
 
+    //region Presentation
+
     override fun getCategories() {
         interactor.getCategories()
     }
@@ -21,7 +23,7 @@ class CategoryBookPresenter @Inject constructor(override var interactor: Categor
         router.showBookDetail(category)
     }
 
-    //endregion presentation
+    //endregion Presentation
 
     //region Output
 

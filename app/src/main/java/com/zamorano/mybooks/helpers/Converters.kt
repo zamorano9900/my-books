@@ -8,7 +8,7 @@ import java.util.*
 class Converters {
     private val gson = Gson()
     @TypeConverter
-    fun stringToList(data: String?): List<String> {
+    fun stringToList(data: String?): MutableList<String> {
         if (data == null) {
             return Collections.emptyList()
         }
@@ -17,11 +17,11 @@ class Converters {
 
         }.type
 
-        return gson.fromJson<List<String>>(data, listType)
+        return gson.fromJson(data, listType)
     }
 
     @TypeConverter
-    fun listToString(someObjects: List<String>): String {
+    fun listToString(someObjects: MutableList<String>): String {
         return gson.toJson(someObjects)
     }
 }

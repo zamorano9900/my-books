@@ -12,7 +12,7 @@ data class BookEntity(
     @PrimaryKey @NonNull @ColumnInfo(name = "isbn") var isbn: String,
     @ColumnInfo(name = "name") var name: String,
     @TypeConverters(Converters::class)
-    @ColumnInfo(name = "authors") var authors: List<String> = arrayListOf(),
+    @ColumnInfo(name = "authors") var authors: MutableList<String> = arrayListOf(),
     @ColumnInfo(name = "numberOfPages") var numberOfPages: Int,
     @ColumnInfo(name = "publisher") var publisher: String,
     @ColumnInfo(name = "country") var country: String,

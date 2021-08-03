@@ -9,7 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.zamorano.mybooks.modules.categoryBookDetail.subviews.CategoryBookDetailAdapter
 
 class CategoryBookAdapter(
     private val context: Context,
@@ -35,9 +37,10 @@ class CategoryBookAdapter(
 
     class MyViewHolder(
         view: View,
-        val presenter: CategoryBookContract.Presentation
+        private val presenter: CategoryBookContract.Presentation
     ) : RecyclerView.ViewHolder(view) {
         private val titleTextView: TextView = view.titleTextView
+        private val row: CardView = view.row_category_container
 
         private var category: Category? = null
 
@@ -47,8 +50,8 @@ class CategoryBookAdapter(
         }
 
         init {
-            this.titleTextView.setOnClickListener { 
-                presenter!!.onChooseCategory(category!!)
+            this.row.setOnClickListener {
+                presenter.onChooseCategory(category!!)
             }
         }
     }

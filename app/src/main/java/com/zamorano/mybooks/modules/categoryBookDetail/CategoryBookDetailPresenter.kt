@@ -1,5 +1,6 @@
 package com.zamorano.mybooks.modules.categoryBookDetail
 
+import com.zamorano.mybooks.model.api.ApiResultEntity
 import com.zamorano.mybooks.model.api.CategoryType
 import java.lang.ref.WeakReference
 import javax.inject.Inject
@@ -13,9 +14,23 @@ class CategoryBookDetailPresenter @Inject constructor(override var interactor: C
         interactor.output = WeakReference(this)
     }
 
+    //region Presentation
+
     override fun getCategoryTypeDetail(categoryType: CategoryType) {
-        TODO("Not yet implemented")
+        interactor.getCategoryTypeDetail(categoryType)
     }
 
     //endregion presentation
+
+    //region Output
+    override fun onShowError(error: String) {
+        view?.get()?.showGenericServiceError(error)
+    }
+
+    override fun onShowCategoryDetail(categories: ApiResultEntity) {
+        view?.get()?.showCategories(categories)
+    }
+
+    //endregion Output
+
 }

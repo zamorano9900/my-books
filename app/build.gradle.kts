@@ -54,6 +54,7 @@ dependencies {
     //region Json - Networking
     implementation("com.google.code.gson:gson:2.8.7")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.11.2")
+    androidTestImplementation("androidx.test:rules:1.4.0")
     //endregion
 
     //region Retrofit - Networking
